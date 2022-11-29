@@ -7,12 +7,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.assignment.assignment.dao.UserRepository;
 import com.assignment.assignment.model.User;
 
-@Controller
-@RequestMapping(path = "/login")
+@RestController
 public class LoginController {
 
 	@Autowired
