@@ -13,6 +13,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @Table
 public class Contact {
@@ -28,6 +30,7 @@ public class Contact {
 	
 	@ManyToOne
 	@JoinColumn(name = "opportunity_id",nullable = false,unique = false)
+	@JsonManagedReference
 	private Opportunity opportunity;
 
 	public Contact() {

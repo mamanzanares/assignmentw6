@@ -12,6 +12,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table
 public class Opportunity {
@@ -26,13 +28,15 @@ public class Opportunity {
 	@Column(name = "opportunity_email")
 	private String email;
 	@Column(name = "opportunity_client")
-	private int clientId;
+	private Integer clientId;
 	
+	@JsonBackReference
 	@OneToOne(mappedBy = "opportunity", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Client client;
 	
     @OneToMany(mappedBy = "opportunity",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	private List<Contact> contacts = new ArrayList<>();
+    @JsonBackReference
+    private List<Contact> contacts = new ArrayList<>();
 
 	public Opportunity() {
 	}
@@ -92,14 +96,13 @@ public class Opportunity {
 		this.contacts = contacts;
 	}
 
-	public int getClientId() {
+	public Integer getClientId() {
 		return clientId;
 	}
 
-	public void setClientId(int clientId) {
+	public void setClientId(Integer clientId) {
 		this.clientId = clientId;
 	}
-	
 	
 
 	

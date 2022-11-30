@@ -10,6 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @Table
 public class Client {
@@ -25,6 +27,7 @@ public class Client {
 	
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "opportunity_id",nullable = false,unique = true)
+	@JsonManagedReference
 	private Opportunity opportunity;
 
 	public Client() {
