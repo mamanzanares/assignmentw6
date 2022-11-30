@@ -36,9 +36,14 @@ public class Contact {
 	public Contact() {
 	}
 
-	public Contact(int id, String description, Date date, Opportunity opportunity) {
-		super();
+	public Contact(int id,String description, Date date, Opportunity opportunity) {
 		this.id = id;
+		this.description = description;
+		this.date = date;
+		this.opportunity = opportunity;
+	}
+	
+	public Contact(String description, Date date, Opportunity opportunity) {
 		this.description = description;
 		this.date = date;
 		this.opportunity = opportunity;

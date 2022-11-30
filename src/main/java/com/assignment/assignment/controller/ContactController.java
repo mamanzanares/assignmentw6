@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.assignment.assignment.dao.ContactRepository;
@@ -25,9 +27,15 @@ public class ContactController {
 	}
 	
 	//GET
-	@GetMapping("/contact/{id}")
+	@GetMapping("/contacts/{id}")
 	public Contact findContact(@PathVariable int id){
 		return contactService.findContact(id);
+	}
+	
+	//POST
+	@PostMapping("/contacts")
+	public void createContact(@RequestBody Contact contact) {
+	contactService.createContact(contact);	
 	}
 	
 }

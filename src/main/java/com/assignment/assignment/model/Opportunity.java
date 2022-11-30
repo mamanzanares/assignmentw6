@@ -47,6 +47,10 @@ public class Opportunity {
 		this.phone = phone;
 		this.email = email;
 	}
+	
+	public Opportunity(String id) {
+		this.id = id;
+	}
 
 	public String getId() {
 		return id;

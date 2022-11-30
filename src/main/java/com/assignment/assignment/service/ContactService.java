@@ -33,4 +33,6 @@ public class ContactService {
 		return contact;
 	}
 	
+	public void createContact(Contact contact) {
+	}
 }
