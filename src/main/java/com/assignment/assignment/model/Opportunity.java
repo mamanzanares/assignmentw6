@@ -29,6 +29,8 @@ public class Opportunity {
 	private String email;
 	@Column(name = "opportunity_client")
 	private Integer clientId;
+	@Column(name = "opportunity_visible",nullable = false)
+	private boolean visible;
 	
 	@JsonBackReference
 	@OneToOne(mappedBy = "opportunity", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
@@ -41,11 +43,12 @@ public class Opportunity {
 	public Opportunity() {
 	}
 
-	public Opportunity(String id, String name, String phone, String email) {
+	public Opportunity(String id, String name, String phone, String email,boolean visible) {
 		this.id = id;
 		this.name = name;
 		this.phone = phone;
 		this.email = email;
+		this.visible=visible;
 	}
 	
 	public Opportunity(String id) {
@@ -106,6 +109,14 @@ public class Opportunity {
 
 	public void setClientId(Integer clientId) {
 		this.clientId = clientId;
+	}
+
+	public boolean isVisible() {
+		return visible;
+	}
+
+	public void setVisible(boolean visible) {
+		this.visible = visible;
 	}
 	
 

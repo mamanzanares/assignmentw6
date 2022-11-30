@@ -35,4 +35,8 @@ public class OpportunityService {
 	public void createOpportunity(Opportunity opportunity) {
 		opportunityRepository.save(opportunity);
 	}
+	
+	public void deleteOpportunity(String id) {
+		
+	}
 }
