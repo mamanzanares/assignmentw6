@@ -42,6 +42,6 @@ public class ContactService {
 	}
 	
 	public void editContact(Contact contact) {
-		
+		contactRepository.save(contact);
 	}
 }
