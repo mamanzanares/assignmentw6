@@ -36,4 +36,8 @@ public class ContactService {
 	public void createContact(Contact contact) {
 		contactRepository.save(contact);
 	}
+	
+	public void deleteContact(int id) {
+		
+	}
 }
