@@ -38,6 +38,15 @@ class ContactTest {
 	
 	@Test
 	@Order(2)
+	void editContact() {
+		Contact contact = new Contact(index,"Reunion presencial editada",new Date(2022,11,30,12,35),new Opportunity("test2"));
+		contactService.editContact(contact);
+		Optional<Contact> tmpContact = contactRepository.findById(index);
+		assertEquals(contact, tmpContact.get());
+	}
+	
+	@Test
+	@Order(3)
 	void deleteContact() {
 		contactService.deleteContact(index);
 		Optional<Contact> tmpOpportunity = contactRepository.findById(index);

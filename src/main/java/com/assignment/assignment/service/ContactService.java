@@ -40,4 +40,8 @@ public class ContactService {
 	public void deleteContact(int id) {
 		contactRepository.deleteById(id);
 	}
+	
+	public void editContact(Contact contact) {
+		
+	}
 }
