@@ -37,6 +37,11 @@ public class OpportunityService {
 	}
 	
 	public void deleteOpportunity(String id) {
-		
-	}
+		Optional<Opportunity> tmp = opportunityRepository.findById(id);
+		if(tmp.isPresent()) {
+		Opportunity tmpOpportunity = tmp.get();
+		tmpOpportunity.setVisible(false);
+		opportunityRepository.save(tmpOpportunity);
+			}
+		}
 }
