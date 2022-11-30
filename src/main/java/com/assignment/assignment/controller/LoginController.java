@@ -11,23 +11,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.assignment.assignment.dao.UserRepository;
 import com.assignment.assignment.model.User;
+import com.assignment.assignment.service.LoginService;
 
 @RestController
 public class LoginController {
 
 	@Autowired
-	private UserRepository userRepository;
+	private LoginService loginService;
 	
 	@PostMapping("/login")
 	public boolean loginUser(@RequestBody User user) {
-		Optional<User> tmp= userRepository.findById(user.getUserName());
-		boolean found = false;
-		if(tmp!=null) {
-			if(user.getPass().equals(tmp.get().getPass())) {
-			found=true;
-			}
-		}
-		return found;
+		return loginUser(user);
 	}
 	
 }
