@@ -33,6 +33,6 @@ public class OpportunityService {
 	}
 	
 	public void createOpportunity(Opportunity opportunity) {
-		
+		opportunityRepository.save(opportunity);
 	}
 }
