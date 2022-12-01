@@ -44,7 +44,7 @@ public class ClientService {
 	}
 	
 	public void editClient(Client client) {
-		
+		clientRepository.save(client);
 	}
 	
 }

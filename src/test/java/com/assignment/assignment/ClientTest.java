@@ -33,7 +33,7 @@ class ClientTest {
 	
 	@Autowired
 	OpportunityService opportunityService;
-	/*
+	
 	@Test
 	void createClient() {
 		//Creation,saving in db and validation of the client
@@ -56,7 +56,7 @@ class ClientTest {
 			}
 		}
 		assertTrue(found);
-	}*/
+	}
 	
 	@Test
 	void editClient() {
