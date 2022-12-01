@@ -33,6 +33,7 @@ public class ClientService {
 	}
 	
 	public void createClient(Client client) {
+		clientRepository.save(client);
 	}
 	
 }
