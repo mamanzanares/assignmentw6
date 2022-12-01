@@ -16,11 +16,14 @@ import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.assignment.assignment.dao.ClientRepository;
 import com.assignment.assignment.dao.ContactRepository;
 import com.assignment.assignment.dao.OpportunityRepository;
+import com.assignment.assignment.model.Client;
 import com.assignment.assignment.model.Contact;
 import com.assignment.assignment.model.Opportunity;
 import com.assignment.assignment.model.User;
+import com.assignment.assignment.service.ClientService;
 import com.assignment.assignment.service.OpportunityService;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @SpringBootTest
@@ -34,6 +37,9 @@ class OpportunityTest {
 	
 	@Autowired
 	ContactRepository contactRepository;
+	
+	@Autowired
+	ClientService clientService;
 	
 	
 	@Test
@@ -94,6 +100,17 @@ class OpportunityTest {
 			
 		}
 		assertTrue(!deleted);
+	}
+	
+	@Test
+	@Order(5)
+	void vinculateClient() {
+		Opportunity opportunity = opportunityService.findOpportunity("test3");
+		Client client = clientService.findClient(1);
+		opportunityService.vinculateClient(opportunity.getId(),client);
+		
+		Opportunity opportunityAux = opportunityService.findOpportunity("test3");
+		assertEquals(client.getId(), opportunityAux.getClientId());
 	}
 
 }

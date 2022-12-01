@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.assignment.assignment.dao.OpportunityRepository;
+import com.assignment.assignment.model.Client;
 import com.assignment.assignment.model.Opportunity;
 import com.assignment.assignment.service.OpportunityService;
 
@@ -50,7 +51,19 @@ public class OpportunityController {
 			opportunityService.editOpportunity(opportunity);
 		}
 	
+		//GET List of clients
+		@GetMapping("opportunities/{id}/clients")
+		public List<Client> findAllClients(@PathVariable String id){
+			return opportunityService.findClients(id);
+			
+		}
+		
+		//POST Associate client
+		@PostMapping("opportunities/{id}/clients")
+		public void vinculateClient(@PathVariable String id,@RequestBody Client client) {
+			opportunityService.vinculateClient(id,client);
+		}
 	
 	
-	
+		
 }
