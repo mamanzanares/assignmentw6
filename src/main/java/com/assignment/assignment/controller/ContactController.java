@@ -51,7 +51,7 @@ public class ContactController {
 	@PutMapping("/contacts/{id}")
 	public void editContact(@RequestBody Contact contact ,@PathVariable int id) {
 		contactService.editContact(contact);
-		}
+	}
 		
 	}
 	

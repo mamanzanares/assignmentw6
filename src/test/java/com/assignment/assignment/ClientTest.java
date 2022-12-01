@@ -33,7 +33,7 @@ class ClientTest {
 	
 	@Autowired
 	OpportunityService opportunityService;
-
+	/*
 	@Test
 	void createClient() {
 		//Creation,saving in db and validation of the client
@@ -56,6 +56,15 @@ class ClientTest {
 			}
 		}
 		assertTrue(found);
+	}*/
+	
+	@Test
+	void editClient() {
+		Client client = clientService.findClient(1);
+		client.setBudget(2500);
+		clientService.editClient(client);
+		Client clientAux = clientService.findClient(1);
+		assertEquals(2500, clientAux.getBudget());
 	}
 
 }

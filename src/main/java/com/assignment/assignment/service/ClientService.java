@@ -43,4 +43,8 @@ public class ClientService {
 		opportunityService.editOpportunity(opportunity);
 	}
 	
+	public void editClient(Client client) {
+		
+	}
+	
 }
