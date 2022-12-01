@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.assignment.assignment.dao.OpportunityRepository;
+import com.assignment.assignment.model.Contact;
 import com.assignment.assignment.model.Opportunity;
 
 @Service
@@ -15,6 +16,8 @@ public class OpportunityService {
 
 	@Autowired
 	OpportunityRepository opportunityRepository;
+	@Autowired
+	ContactService contactService;
 	
 	public List<Opportunity> findAllOpportunitiesNotDeleted(){
 		Iterable<Opportunity> dbList = opportunityRepository.findAllOpportunitiesNotDeleted();
@@ -34,6 +37,9 @@ public class OpportunityService {
 	
 	public void createOpportunity(Opportunity opportunity) {
 		opportunityRepository.save(opportunity);
+		Contact contact = new Contact(null,null,opportunity);
+		contactService.createContact(contact);
+		
 	}
 	
 	public void deleteOpportunity(String id) {
