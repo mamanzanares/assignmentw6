@@ -2,6 +2,8 @@ package com.assignment.assignment;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.Optional;
+
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
@@ -17,6 +19,8 @@ import com.assignment.assignment.service.ClientService;
 @SpringBootTest
 class ClientTest {
 	
+	static int index;
+	
 	@Autowired
 	ClientRepository clientRepository;
 	@Autowired
@@ -26,6 +30,10 @@ class ClientTest {
 	void createClient() {
 		Client client = new Client("Testing", 500, new Opportunity("test2"));
 		clientService.createClient(client);
+		Optional<Client> tmpClient = clientRepository.findById(client.getId());
+		index = client.getId();
+		assertTrue(tmpClient.isPresent());
+	
 	}
 
 }
