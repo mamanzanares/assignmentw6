@@ -9,12 +9,16 @@ import org.springframework.stereotype.Service;
 
 import com.assignment.assignment.dao.ClientRepository;
 import com.assignment.assignment.model.Client;
+import com.assignment.assignment.model.Opportunity;
 
 @Service
 public class ClientService {
 	
 	@Autowired
 	ClientRepository clientRepository;
+	
+	@Autowired
+	OpportunityService opportunityService;
 
 	public List<Client> findAllClients() {
 		Iterable<Client> dbList = clientRepository.findAll();
@@ -34,6 +38,9 @@ public class ClientService {
 	
 	public void createClient(Client client) {
 		clientRepository.save(client);
+		Opportunity opportunity = opportunityService.findOpportunity(client.getOpportunity().getId());
+		opportunity.setClientId(client.getId());
+		opportunityService.editOpportunity(opportunity);
 	}
 	
 }
