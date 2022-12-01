@@ -39,10 +39,18 @@ public class OpportunityController {
 	}
 	
 	//DELETE
-	@DeleteMapping("/opportunities/{id}")
+	@PostMapping("/opportunities/{id}")
 	public void deleteContact(@PathVariable String id) {
 		opportunityService.deleteOpportunity(id);
 	}
+	
+	//PUT
+		@PostMapping("/opportunities/update/{id}")
+		public void editOpportunity(@RequestBody Opportunity opportunity,@PathVariable String id) {
+			opportunityService.editOpportunity(opportunity);
+		}
+	
+	
 	
 	
 }

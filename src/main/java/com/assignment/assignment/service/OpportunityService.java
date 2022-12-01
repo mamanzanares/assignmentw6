@@ -44,4 +44,8 @@ public class OpportunityService {
 		opportunityRepository.save(tmpOpportunity);
 			}
 		}
+	
+	public void editOpportunity(Opportunity opportunity) {
+		
+	}
 }

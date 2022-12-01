@@ -21,7 +21,7 @@ public class LoginController {
 	
 	@PostMapping("/login")
 	public boolean loginUser(@RequestBody User user) {
-		return loginUser(user);
+		return loginService.loginUser(user);
 	}
 	
 }
