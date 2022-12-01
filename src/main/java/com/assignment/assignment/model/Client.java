@@ -33,8 +33,7 @@ public class Client {
 	public Client() {
 	}
 
-	public Client(int id, String name, double budget, Opportunity opportunity) {
-		this.id = id;
+	public Client(String name, double budget, Opportunity opportunity) {
 		this.name = name;
 		this.budget = budget;
 		this.opportunity = opportunity;
