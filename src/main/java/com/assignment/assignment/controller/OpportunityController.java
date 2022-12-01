@@ -23,7 +23,7 @@ public class OpportunityController {
 	//GET ALL
 	@GetMapping("/opportunities")
 	public List<Opportunity> findAllOpportunities(){
-		return opportunityService.findAllOpportunities();
+		return opportunityService.findAllOpportunitiesNotDeleted();
 	}
 	
 	//GET

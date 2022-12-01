@@ -30,7 +30,7 @@ class OpportunityTest {
 	@Autowired
 	OpportunityService opportunityService;
 	
-	/*
+	
 	@Test
 	@Order(1)
 	void createOpportunity() {
@@ -59,11 +59,11 @@ class OpportunityTest {
 		Optional<Opportunity> tmpOpportunity = opportunityRepository.findById("test3");
 		assertEquals(false, tmpOpportunity.get().isVisible());
 	}
-	*/
+	
 	@Test
 	@Order(4)
 	void getAllOppotunitiesNotDeleted() {
-		List<Opportunity> opportunitiesList = opportunityService.findAllOpportunities();
+		List<Opportunity> opportunitiesList = opportunityService.findAllOpportunitiesNotDeleted();
 		Iterator it = opportunitiesList.iterator();
 		boolean deleted = false;
 		while(it.hasNext()) {

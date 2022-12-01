@@ -16,8 +16,8 @@ public class OpportunityService {
 	@Autowired
 	OpportunityRepository opportunityRepository;
 	
-	public List<Opportunity> findAllOpportunities(){
-		Iterable<Opportunity> dbList = opportunityRepository.findAll();
+	public List<Opportunity> findAllOpportunitiesNotDeleted(){
+		Iterable<Opportunity> dbList = opportunityRepository.findAllOpportunitiesNotDeleted();
 		List<Opportunity> tmpList = new ArrayList<>();
 		dbList.forEach(tmpList::add);
 		return tmpList;
