@@ -29,7 +29,7 @@ class OpportunityTest {
 	@Autowired
 	OpportunityService opportunityService;
 	
-	/*
+	
 	@Test
 	@Order(1)
 	void createOpportunity() {
@@ -38,7 +38,7 @@ class OpportunityTest {
 		Optional<Opportunity> tmpOpportunity = opportunityRepository.findById("test3");
 		assertTrue(tmpOpportunity.isPresent());
 	}
-	*/
+	
 	
 	@Test
 	@Order(2)
@@ -50,7 +50,7 @@ class OpportunityTest {
 		assertEquals("622", tmpOpportunity.get().getPhone());
 		assertEquals("mailTestUpdate", tmpOpportunity.get().getEmail());
 	}
-	/*
+	
 	@Test
 	@Order(3)
 	void deleteOpportunity() {
@@ -58,5 +58,5 @@ class OpportunityTest {
 		Optional<Opportunity> tmpOpportunity = opportunityRepository.findById("test3");
 		assertEquals(false, tmpOpportunity.get().isVisible());
 	}
-*/
+
 }
