@@ -59,7 +59,10 @@ public class OpportunityService {
 	}
 	
 	public void vinculateClient(String id,Client client) {
-		
+		Optional<Opportunity> opportunity = opportunityRepository.findById(id);
+		Opportunity tmpOpportunity = opportunity.get();
+		tmpOpportunity.setClientId(client.getId());
+		opportunityRepository.save(tmpOpportunity);
 	}
 	
 	public List<Client> findClients(String id){
