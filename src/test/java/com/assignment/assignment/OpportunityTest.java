@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.sql.Date;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,7 +30,7 @@ class OpportunityTest {
 	@Autowired
 	OpportunityService opportunityService;
 	
-	
+	/*
 	@Test
 	@Order(1)
 	void createOpportunity() {
@@ -57,6 +58,22 @@ class OpportunityTest {
 		opportunityService.deleteOpportunity("test3");
 		Optional<Opportunity> tmpOpportunity = opportunityRepository.findById("test3");
 		assertEquals(false, tmpOpportunity.get().isVisible());
+	}
+	*/
+	@Test
+	@Order(4)
+	void getAllOppotunitiesNotDeleted() {
+		List<Opportunity> opportunitiesList = opportunityService.findAllOpportunities();
+		Iterator it = opportunitiesList.iterator();
+		boolean deleted = false;
+		while(it.hasNext()) {
+			Opportunity tmp = (Opportunity)it.next();
+			if(!tmp.isVisible()) {
+				deleted=true;
+			}
+			
+		}
+		assertTrue(!deleted);
 	}
 
 }
