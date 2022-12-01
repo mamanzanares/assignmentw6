@@ -34,6 +34,7 @@ public class OpportunityService {
 		Opportunity opportunity = null;
 		if(tmp.isPresent()) {
 			opportunity=tmp.get();
+			opportunity.setContacts(contactService.findContactsByIdOp(id));
 		}
 		return opportunity;
 	}

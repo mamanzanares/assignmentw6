@@ -11,5 +11,7 @@ import com.assignment.assignment.model.Contact;
 @Repository
 public interface ContactRepository extends CrudRepository<Contact, Integer>{
 
+	@Query(value = "select id,description,date from Contact where opportunity_id=:id")
+	Iterable<Contact> findContactByIdOpportunity(String id);
 	
 }

@@ -1,6 +1,7 @@
 package com.assignment.assignment.service;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,6 +23,18 @@ public class ContactService {
 		List<Contact> tmpList = new ArrayList<>();
 		dbList.forEach(tmpList::add);
 		return tmpList;
+	}
+	
+	public List<Contact> findContactsByIdOp(String id){
+		Iterable<Contact> dbList = contactRepository.findContactByIdOpportunity(id);
+		/*
+		List<Contact> tmpList = new ArrayList<>();
+		Iterator<Contact> it = dbList.iterator();
+		while(it.hasNext()) {
+			Contact tmpContact = it.next();
+			tmpList.add(tmpContact);
+		}*/
+		return (List<Contact>) dbList;
 	}
 
 	public Contact findContact(int id) {
